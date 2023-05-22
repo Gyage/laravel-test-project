@@ -1,66 +1,66 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## ERPool Software Kft.
+# gyallai-gergely
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## �ltal�nos webalkalmaz�s megval�s�t�sa.
 
-## About Laravel
+A feladat egy �ltal�nos webalkalmaz�s l�trehoz�sa, ahol a felhaszn�l� be tud jelentkezni, majd term�keket tud r�gz�teni.
+Tov�bb� a bejelentkezett felhaszn�l� tud v�s�rl�sokat r�gz�teni, a v�s�rl�sba term�keket bev�logatni.
+A v�s�rl�s v�gleges�t�sekor az alkalmaz�s kisz�molja a v�s�rl�s �rt�k�t, figyelembe v�ve a mennyis�gi kedvezm�nyeket.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# 1. Alap funkcionalit�s
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Regisztr�ci�
+- Bejelentkez�s
+- Elfelejtett jelsz�
+- 2FA
+- Profiloldal
+- Jelsz�v�ltoztat�s
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# 2. B�v�tett funkcionalit�s
 
-## Learning Laravel
+- Egyedi dashboard
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# 3. �zleti funkcionalit�s
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+:: Men�
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+: Term�kek
 
-## Laravel Sponsors
+- �j term�k
+	N�v
+	Egys�g�r
+	3 darabos �r
+	5 darabos �r
+- Term�k m�dos�t�sa
+- Term�k t�rl�se - amennyiben a term�kb�l m�g nincs v�s�rolva -
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+: V�s�rl�sok
 
-### Premium Partners
+- �j v�s�rl�s
+	Term�kek hozz�ad�sa, v�s�rolt mennyis�g megad�sa
+- V�s�rl�s m�dos�t�sa
+- V�s�rl�s t�rl�se - amennyiben m�g nincs a v�s�rl�s v�gleges�tve -
+- V�s�rl�s v�gleges�t�se
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+# 4. Egys�gtesztek
 
-## Contributing
+: Egys�gteszt k�sz�t�se a v�s�rl�sok �rt�k sz�m�t�s�nak tesztel�s�re.
+	
+## Elv�rt  m�dszertanok
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- MVC
+- OOP
+- SFC
+- �jrahaszn�lhat� komponens alap� tervez�s
 
-## Code of Conduct
+## Elv�rt technol�gi�k
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Laravel keretrendszer
+- Jetstream
+- Inertia
+- Vue.js
+- PostgreSQL
 
-## Security Vulnerabilities
+## El�ny�s technol�gi�k
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Quasar komponensek
