@@ -4,70 +4,56 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
     public function index() {
-        return view('listings.index', [
-            'listings' => Product::latest()->paginate(2)
+        return Inertia::render('Products/List', [
+            'products' => Product::latest()->get(),
         ]);
     }
 
-    public function show(Product $listing) {
-        return view('listings.show', [
-            'listing' => $listing
-        ]);
-    }
-
-    public function create() {
-        return view('listings.create', [
+    public function show(Product $product) {
+        return Inertia::render('Products/Show', [
+            'product' => $product,
         ]);
     }
 
     public function store( Request $request) {
         $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required', Rule::unique('listings', 'company')],
-            'website' => 'required',
-            'description' => 'required',
-            'location' => 'required',
-            'tags' => 'required',
-            'email' => ['required', 'email']
+            'name' => 'required',
+            'price_1' => ['required', 'numeric'],
+            'price_3' => ['required', 'numeric'],
+            'price_5' => ['required', 'numeric'],
         ]);
 
         $formFields['user_id'] = auth()->id();
 
-        Product::create($formFields);
+        $product = Product::create($formFields);
 
-        return redirect('/')->with('message', 'Product created');
-    }
-
-    public function edit(Product $listing) {
-        return view('listings.edit', [
-            'listing' => $listing,
+        return Inertia::render('Products/Show', [
+            'product' => $product,
         ]);
     }
 
-    public function update(Request $request, Product $listing) {
-        if ($listing->user_id != auth()->id()) {
+    public function update(Request $request, Product $product) {
+        if ($product->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
 
         $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required'],
-            'website' => 'required',
-            'description' => 'required',
-            'location' => 'required',
-            'tags' => 'required',
-            'email' => ['required', 'email'],
-
+            'name' => 'required',
+            'price_1' => ['required', 'numeric'],
+            'price_3' => ['required', 'numeric'],
+            'price_5' => ['required', 'numeric'],
         ]);
 
-        $listing->update($formFields);
+        $product->update($formFields);
 
-        return back()->with('message', 'Product updated');
+        return Inertia::render('Products/Show', [
+            'product' => $product,
+        ]);    
     }
 
     public function destroy(Product $product) {
@@ -77,6 +63,8 @@ class ProductController extends Controller
 
         $product->delete();
         
-        return redirect('/')->with('message', 'Product deleted');
+        return Inertia::render('Products/List', [
+            'products' => Product::latest()->get(),
+        ]);    
     }
 }

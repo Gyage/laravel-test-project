@@ -19,6 +19,7 @@ class Product extends Model
         'price_1',
         'price_3',
         'price_5',
+        'user_id',
     ];
  
     public function scopeFilter($query, array $filter) {
@@ -37,5 +38,9 @@ class Product extends Model
 
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function orderItems(){
+        return $this->hasMany(Order::class, 'product_id');
     }
 }

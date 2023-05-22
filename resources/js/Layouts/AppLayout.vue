@@ -49,7 +49,13 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Kezdőoldal
+                                </NavLink>
+                                <NavLink :href="route('products_index')" :active="route().current('products_index')">
+                                    Termékek
+                                </NavLink>
+                                <NavLink :href="route('orders_index')" :active="route().current('orders_index')">
+                                    Vásárlások
                                 </NavLink>
                             </div>
                         </div>
@@ -113,6 +119,12 @@ const logout = () => {
                                         </div>
                                     </template>
                                 </Dropdown>
+                            </div>
+
+                            <div class="ml-3 relative">
+                                <NavLink :href="route('orders_show', {user: $page.props.auth.user})" :active="route().current('orders_show')">
+                                    Kosár
+                                </NavLink>
                             </div>
 
                             <!-- Settings Dropdown -->
@@ -277,7 +289,7 @@ const logout = () => {
 
             <!-- Page Heading -->
             <header v-if="$slots.header" class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                 </div>
             </header>
