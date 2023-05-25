@@ -16,16 +16,7 @@ const props = defineProps({
             </h2>
         </template>
 
+        <LargeCard :order="order" v-for="order in orders"/>     
 
-        <div v-for="order in orders">
-            <div class="pt-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        <LargeCard :order="order"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
     </AppLayout>
 </template>

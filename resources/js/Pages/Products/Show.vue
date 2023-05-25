@@ -12,28 +12,17 @@ const props = defineProps({
 <template>
     <AppLayout :title="product.name">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{product.name}}
-            </h2>
+            <div class="w-5/6">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ product.name }}
+                </h2>
+            </div>
             <div class="ml-3 relative">
                 <CreateProductForm/>
             </div>
         </template>
 
-            <div class="pt-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        <LargeCard :product="product"/>
-                    </div>
-                </div>
-            </div>
-            <div class="py-6" v-if="$page.props.auth.user.id == product.user_id">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        
-                    </div>
-                </div>
-            </div>
+        <LargeCard :product="product"/>
         
     </AppLayout>
 </template>

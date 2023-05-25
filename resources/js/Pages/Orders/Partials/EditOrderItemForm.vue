@@ -2,7 +2,7 @@
 import { useForm } from '@inertiajs/vue3';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import NumberInput from '@/Components/NumberInput.vue';
 
 
 const props = defineProps({
@@ -30,10 +30,9 @@ const submit = () => {
 <template>
 <form @submit.prevent="submit" class="w-max">
             <div>
-                <TextInput
+                <NumberInput
                     id="count"
                     v-model="form.count"
-                    type="number"
                     class=""
                     required
                     autofocus
