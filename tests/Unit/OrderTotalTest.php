@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Http\Services\Calculator;
+use App\Actions\App\OrderTotalUpdate;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
@@ -35,6 +35,6 @@ class OrderTotalTest extends TestCase
             'count' => 5,
         ]);
          
-        $this->assertEquals(100, Calculator::calculateTotal($order));
+        $this->assertEquals(100, OrderTotalUpdate::execute($order));
     }
 }

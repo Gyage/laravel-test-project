@@ -22,15 +22,12 @@ class Order extends Model
 
         if($filter['newest'] ?? false) {
             $filters[] = ['is_finished', '=', false];
-            $query->first();
         }
 
         $query->where($filters)  
             ->with('orderitems')
             ->with('orderitems.product')
-            // ->join('order_items', 'orders.id', '=', 'order_items.order_id')
-            // ->join('products', 'products.id', '=', 'order_items.product_id')
-            ;
+        ;
     }
 
     public function user() {

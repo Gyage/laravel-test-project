@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\Calculator;
+use App\Actions\App\OrderItemInsert;
+use App\Actions\App\OrderTotalUpdate;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -24,7 +24,7 @@ class OrderController extends Controller
         }
 
         return Inertia::render('Orders/Show', [
-            'order' => Order::own(['id' => $user->id, 'newest' => true])->get(),
+            'order' => Order::own(['id' => $user->id, 'newest' => true])->get()->get(0),
         ]);
     }
 
@@ -40,24 +40,20 @@ class OrderController extends Controller
 
         $formFields['order_id'] = $order->id;
 
-        $orderitem = OrderItem::create($formFields);
+        OrderItem::create($formFields);
 
-        $total = Calculator::calculateTotal($order);
+        OrderTotalUpdate::execute($order);
         
-        $order->update(['total' => $total]);
-
         return back();
     }
 
     public function update(Request $request) {
-        $orders = Order::own(['id' => auth()->id(), 'newest' => true])->get();
+        $order = Order::own(['id' => auth()->id(), 'newest' => true])->get()->get(0);
 
-        if (is_null($orders->get(0))) {
+        if (is_null($order)) {
             $this->store($request);
             return back();
         }
-
-        $order = $orders[0];
 
         if ($order->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
@@ -67,29 +63,12 @@ class OrderController extends Controller
             'product_id' => ['required', 'numeric'],
             'count' => ['required', 'numeric'],
         ]);
-
         $formFields['order_id'] = $order->id;
 
-        $toUpdate = false;
-        foreach ($order->orderItems as $k => $item) {
-            if ($item->product_id == request('product_id')) {
-                $toUpdate = $k;
-                break;
-            }
-        }
+        OrderItemInsert::execute($order, $formFields);
 
-        if (is_numeric($toUpdate)) {
-            $count = $order->orderItems[$toUpdate]->count + request('count');
-            $orderitem = $order->orderItems[$toUpdate];
-            $orderitem->update(['count' => $count]);
-        } else {
-            $orderitem = OrderItem::create($formFields);
-        }
-
-        $total = Calculator::calculateTotal($order);
+        OrderTotalUpdate::execute($order);
         
-        $order->update(['total' => $total]);
-
         return back();    
     }
 
@@ -150,10 +129,8 @@ class OrderController extends Controller
 
         $orderitem->update($formFields);
 
-        $total = Calculator::calculateTotal($order);
-        
-        $order->update(['total' => $total]);
-        
+        OrderTotalUpdate::execute($order);
+                
         return back();
     }
 }
