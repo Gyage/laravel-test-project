@@ -49,13 +49,13 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Kezdőoldal
+                                    Dashboard
                                 </NavLink>
                                 <NavLink :href="route('products_index')" :active="route().current('products_index')">
-                                    Termékek
+                                    Products
                                 </NavLink>
                                 <NavLink :href="route('orders_index')" :active="route().current('orders_index')">
-                                    Vásárlások
+                                    Orders
                                 </NavLink>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ const logout = () => {
 
                             <div class="ml-3 relative">
                                 <NavLink :href="route('orders_show', {user: $page.props.auth.user})" :active="route().current('orders_show')">
-                                    Kosár
+                                    Shopping Cart
                                 </NavLink>
                             </div>
 

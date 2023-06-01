@@ -40,13 +40,13 @@ const closeModal = () => {
 <template>
             <div class="m-2">
                 <PrimaryButton @click="openProductedit">
-                    Termék Módosítása
+                    Edit Product
                 </PrimaryButton>
             </div>
             
             <DialogModal :show="confirmingProductEdit" @close="closeModal">
                 <template #title>
-                    Termék Módosítása
+                    Edit Product
                 </template>
 
                 <template #content>
@@ -55,7 +55,7 @@ const closeModal = () => {
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Mégse
+                        Cancel
                     </SecondaryButton>
 
                     <PrimaryButton
@@ -64,7 +64,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="editProduct"
                     >
-                        Termék Módosítása
+                        Edit Product
                     </PrimaryButton>
                 </template>
             </DialogModal>

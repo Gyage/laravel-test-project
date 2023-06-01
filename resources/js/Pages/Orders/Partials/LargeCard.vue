@@ -14,13 +14,13 @@ const props = defineProps({
     <Card>
         <template #header>
             <h2 class="w-1/4 text-xl font-semibold text-gray-900">
-                Rendelésszám: {{ order.id }}
+                Order Number: {{ order.id }}
             </h2>
             <h2 class="w-1/4 text-xl font-semibold text-gray-900">
-                Véglegesített: {{ order.is_finished ? 'igen' :  'nem' }}
+                Finalized: {{ order.is_finished ? 'yes' :  'no' }}
             </h2>
             <h2 class="w-1/4 text-xl font-semibold text-gray-900">
-                Összesen: {{ order.total }}
+                Total: {{ order.total }} HUF
             </h2>
             <h2 class="w-1/8 text-xl font-semibold text-gray-900" 
                 v-if="$page.props.auth.user.id == order.user_id && !order.is_finished">

@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
        
         $user = \App\Models\User::factory()->create([
-            'name' => 'név',
+            'name' => 'name',
             'email' => 'aaa@aaa.aa',
             'password' => bcrypt('a'),
         ]);

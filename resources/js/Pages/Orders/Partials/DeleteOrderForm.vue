@@ -37,18 +37,18 @@ const closeModal = () => {
 <template>
             <div class="m-1">
                 <DangerButton @click="confirmOrderDeletion">
-                    Vásárlás törlése
+                    Delete Order
                 </DangerButton>
             </div>
 
             <DialogModal :show="confirmingOrderDeletion" @close="closeModal">
                 <template #title>
-                    Biztosan törli?
+                    Are you sure you want to delete?
                 </template>
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Mégse
+                        Cancel
                     </SecondaryButton>
 
                     <DangerButton
@@ -57,7 +57,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteOrder"
                     >
-                        Vásárlás törlése
+                        Delete Order
                     </DangerButton>
                 </template>
             </DialogModal>

@@ -42,7 +42,7 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.count" />
             </div>
                 <PrimaryButton class="m-2" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Módosítás
+                    Edit
                 </PrimaryButton>
         </form>
 </template>

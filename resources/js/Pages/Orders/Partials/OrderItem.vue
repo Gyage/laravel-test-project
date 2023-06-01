@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
     <div class="flex items-stretch">
         <h2 class="w-1/6 text-xl font-semibold text-gray-900">
-            {{ orderitem.count }} db 
+            {{ orderitem.count }} pieces 
         </h2>
         <h2 class="w-1/6 text-xl font-semibold text-gray-900">
             <Link :href="route('products_show', {id: orderitem.product.id})">
@@ -21,7 +21,7 @@ const props = defineProps({
             </Link>
         </h2>
         <h2 class="w-1/6 text-xl font-semibold text-gray-900 items-end">
-            Részösszesen: {{ orderitem.subtotal }}
+            Subtotal: {{ orderitem.subtotal }}
         </h2>
         <h2 class="mx-3 text-xl font-semibold text-gray-900" v-if="!order.is_finished">
             <DeleteOrderItemForm :orderitem="orderitem" :order="order"/>

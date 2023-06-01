@@ -5,10 +5,10 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <AppLayout title="Kezdőoldal">
+    <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Kezdőoldal
+                Dashboard
             </h2>
         </template>
 
@@ -29,10 +29,10 @@ import { Link } from '@inertiajs/vue3';
 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Termékek</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Products</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Itt készíthet, módosíthat termékeket, sőt vásárolhat is!
+                                Here you can create and edit products, and buy them too!
                             </p>
                         </div>
 
@@ -49,10 +49,10 @@ import { Link } from '@inertiajs/vue3';
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Rendeléseim</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">My Orders</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Itt tekintheti meg a rendeléseit.
+                                Here you can edit and finalize your orders.
                             </p>
                         </div>
 

@@ -23,7 +23,7 @@ const props = defineProps({
             </h2>
             <h2 class="mx-1 text-xl font-semibold text-gray-900">
                 <AddToOrderForm :product="product" :href="route('orders_update')" class="inline-flex items-center font-semibold text-indigo-700">
-                    Vásárlás
+                    Order
                 </AddToOrderForm>
             </h2>
             <h2 class="mx-1 text-xl font-semibold text-gray-900" v-if="$page.props.auth.user.id == product.user_id">
@@ -34,9 +34,9 @@ const props = defineProps({
             </h2>
         </template>
         <template #rows>
-            <PriceTag>1 db ára: {{product.price_1}} HUF</PriceTag>
-            <PriceTag>3 db ára: {{product.price_3}} HUF</PriceTag>
-            <PriceTag>5 db ára: {{product.price_5}} HUF</PriceTag> 
+            <PriceTag>Price for 1: {{product.price_1}} HUF</PriceTag>
+            <PriceTag>Price for 3: {{product.price_3}} HUF</PriceTag>
+            <PriceTag>Price for 5: {{product.price_5}} HUF</PriceTag> 
         </template>
     </Card>
 </template>

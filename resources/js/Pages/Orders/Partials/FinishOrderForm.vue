@@ -39,18 +39,18 @@ const closeModal = () => {
 <template>
             <div class="m-1">
                 <PrimaryButton @click="confirmOrderFinish">
-                    Vásárlás véglegesítése
+                    Finalize Order
                 </PrimaryButton>
             </div>
 
             <DialogModal :show="confirmingOrderFinish" @close="closeModal">
                 <template #title>
-                    Biztosan véglegesítési?
+                    Are you sure you want to finalize?
                 </template>
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Mégse
+                        Cancel
                     </SecondaryButton>
 
                     <PrimaryButton
@@ -59,7 +59,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="finishOrder"
                     >
-                        Vásárlás véglegesítése
+                        Finalize Order
                     </PrimaryButton>
                 </template>
             </DialogModal>
